@@ -1,7 +1,17 @@
 - hosts: webserver
   become: yes
   tasks:
-    - name: Ensure Apache is installed
+    - name: Install Apache
       package:
         name: "{{ 'httpd' if ansible_os_family == 'RedHat' else 'apache2' }}"
-        state: present # Change state to absent if you want to uninstall
+        state: present
+
+    # - name: Enable Apache to start on boot
+    #   service:
+    #     name: "{{ 'httpd' if ansible_os_family == 'RedHat' else 'apache2' }}"
+    #     enabled: yes
+
+    # - name: Start Apache
+    #   service:
+    #     name: "{{ 'httpd' if ansible_os_family == 'RedHat' else 'apache2' }}"
+    #     state: started

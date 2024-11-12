@@ -1,0 +1,21 @@
+- hosts: webserver
+  become: yes
+  tasks:
+    - name: Ensure Apache is installed
+      package:
+        name: "{{ 'httpd' if ansible_os_family == 'RedHat' else 'apache2' }}"
+        state: present
+
+    - name: Start Apache
+      command: apache2ctl start
+# Since I do run in docker
+# Use Docker-Specific Commands (if running in Docker)
+# If this is running inside a Docker container, the service module is unlikely to work,
+# as containers do not have the full init system (systemd).
+# In Docker, you can start Apache directly via apache2ctl
+
+# if it was the real machine then:
+#  - name: Ensure Apache is started
+#       service:
+#         name: httpd
+#         state: started
