@@ -26,3 +26,7 @@ HTTPd is a software program, that usually runs in the background, as a process. 
 
 Playbooks:
 Ansible Playbooks are lists of tasks that automatically execute for your specified inventory or groups of hosts. One or more Ansible tasks can be combined to make a play—an ordered grouping of tasks mapped to specific hosts—and tasks are executed in the order in which they are written.
+
+---
+
+AWX provides a web-based user interface, REST API, and task engine built on top of Ansible. It's the upstream of automation controller (formerly Ansible Tower). Both are upstream projects for Red Hat Ansible Automation Platform.
